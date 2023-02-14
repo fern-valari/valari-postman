@@ -27,111 +27,7 @@
   },
   "item": [
     {
-      "name": "Authentication",
-      "item": [
-        {
-          "name": "Create Authentication Token",
-          "request": {
-            "description": "Use your Access Credentials to get a Bearer Token",
-            "url": {
-              "raw": "{{baseUrl}}/auth/partners",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "auth",
-                "partners"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [],
-            "method": "POST",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"type\": \"accessToken\",\n    \"attributes\": {\n        \"partnerId\": \"partner_0123456\",\n        \"partnerSecret\": \"my-partner-secret\",\n        \"grantType\": \"client_credentials\",\n        \"appKey\": \"abcd1234\"\n    }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "name": "Success",
-              "status": "OK",
-              "code": 200,
-              "originalRequest": {
-                "description": "Use your Access Credentials to get a Bearer Token",
-                "url": {
-                  "raw": "{{baseUrl}}/auth/partners",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "partners"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"type\": \"accessToken\",\n    \"attributes\": {\n        \"partnerId\": \"partner_0123456\",\n        \"partnerSecret\": \"my-partner-secret\",\n        \"grantType\": \"client_credentials\",\n        \"appKey\": \"abcd1234\"\n    }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"message\": \"Token successfully created.\",\n    \"data\": {\n        \"type\": \"accessToken\",\n        \"attributes\": {\n            \"token\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY3RpdmUiOnRydWUsImFwcEtleSI6InRlc3QtYXBwIiwicGFydG5lcklkIjoiMDcxOTU2NTItYWEyMy00MDg1LTg4NTktMGZjZjU1NzE4MzQ5IiwidHlwZSI6InBhcnRuZXIiLCJzaG9ydENvZGUiOiJITyIsImlhdCI6MTY2ODYyNTM2NCwiZXhwIjoxNjY4NjMyNTY0fQ.OUbmz3LLbtEYut1Brr21bcc1LElkYHU0_tLclbVPtBA\",\n            \"appKey\": \"test-app\",\n            \"partnerId\": \"07195652-aa23-4085-8859-0fcf55718349\",\n            \"grantType\": \"client_credentials\"\n        }\n    }\n}",
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "name": "Unauthorized Error",
-              "status": "Unauthorized Error",
-              "code": 404,
-              "originalRequest": {
-                "description": "Use your Access Credentials to get a Bearer Token",
-                "url": {
-                  "raw": "{{baseUrl}}/auth/partners",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "auth",
-                    "partners"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"type\": \"accessToken\",\n    \"attributes\": {\n        \"partnerId\": \"partner_0123456\",\n        \"partnerSecret\": \"my-partner-secret\",\n        \"grantType\": \"client_credentials\",\n        \"appKey\": \"abcd1234\"\n    }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"errorType\": \"Unauthorized\",\n    \"errorMessage\": \"Not Found\",\n    \"errors\": [\n        \"Invalid partnerSecret\"\n    ],\n    \"errorRaw\": null,\n    \"errorsValidation\": null\n}",
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "_type": "endpoint"
-        }
-      ],
-      "_type": "container"
-    },
-    {
-      "name": "Link Sessions",
+      "name": "Link Session",
       "item": [
         {
           "name": "Create a Link Session",
@@ -285,6 +181,104 @@
         }
       ],
       "_type": "container"
+    },
+    {
+      "name": "Create Authentication Token",
+      "request": {
+        "description": "Use your Access Credentials to get a Bearer Token",
+        "url": {
+          "raw": "{{baseUrl}}/auth/partners",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "partners"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [],
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"type\": \"accessToken\",\n    \"attributes\": {\n        \"partnerId\": \"partner_0123456\",\n        \"partnerSecret\": \"my-partner-secret\",\n        \"grantType\": \"client_credentials\",\n        \"appKey\": \"abcd1234\"\n    }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Success",
+          "status": "OK",
+          "code": 200,
+          "originalRequest": {
+            "description": "Use your Access Credentials to get a Bearer Token",
+            "url": {
+              "raw": "{{baseUrl}}/auth/partners",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "partners"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"accessToken\",\n    \"attributes\": {\n        \"partnerId\": \"partner_0123456\",\n        \"partnerSecret\": \"my-partner-secret\",\n        \"grantType\": \"client_credentials\",\n        \"appKey\": \"abcd1234\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "body": "{\n    \"message\": \"Token successfully created.\",\n    \"data\": {\n        \"type\": \"accessToken\",\n        \"attributes\": {\n            \"token\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY3RpdmUiOnRydWUsImFwcEtleSI6InRlc3QtYXBwIiwicGFydG5lcklkIjoiMDcxOTU2NTItYWEyMy00MDg1LTg4NTktMGZjZjU1NzE4MzQ5IiwidHlwZSI6InBhcnRuZXIiLCJzaG9ydENvZGUiOiJITyIsImlhdCI6MTY2ODYyNTM2NCwiZXhwIjoxNjY4NjMyNTY0fQ.OUbmz3LLbtEYut1Brr21bcc1LElkYHU0_tLclbVPtBA\",\n            \"appKey\": \"test-app\",\n            \"partnerId\": \"07195652-aa23-4085-8859-0fcf55718349\",\n            \"grantType\": \"client_credentials\"\n        }\n    }\n}",
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Unauthorized Error",
+          "status": "Unauthorized Error",
+          "code": 404,
+          "originalRequest": {
+            "description": "Use your Access Credentials to get a Bearer Token",
+            "url": {
+              "raw": "{{baseUrl}}/auth/partners",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "partners"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"accessToken\",\n    \"attributes\": {\n        \"partnerId\": \"partner_0123456\",\n        \"partnerSecret\": \"my-partner-secret\",\n        \"grantType\": \"client_credentials\",\n        \"appKey\": \"abcd1234\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "body": "{\n    \"errorType\": \"Unauthorized\",\n    \"errorMessage\": \"Not Found\",\n    \"errors\": [\n        \"Invalid partnerSecret\"\n    ],\n    \"errorRaw\": null,\n    \"errorsValidation\": null\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "_type": "endpoint"
     }
   ]
 }
