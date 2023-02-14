@@ -1,0 +1,290 @@
+{
+  "info": {
+    "name": "Valari API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.valari.co/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ],
+    "type": "bearer"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Create Authentication Token",
+          "request": {
+            "description": "Use your Access Credentials to get a Bearer Token",
+            "url": {
+              "raw": "{{baseUrl}}/auth/partners",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "partners"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"accessToken\",\n    \"attributes\": {\n        \"partnerId\": \"partner_0123456\",\n        \"partnerSecret\": \"my-partner-secret\",\n        \"grantType\": \"client_credentials\",\n        \"appKey\": \"abcd1234\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Use your Access Credentials to get a Bearer Token",
+                "url": {
+                  "raw": "{{baseUrl}}/auth/partners",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "partners"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"type\": \"accessToken\",\n    \"attributes\": {\n        \"partnerId\": \"partner_0123456\",\n        \"partnerSecret\": \"my-partner-secret\",\n        \"grantType\": \"client_credentials\",\n        \"appKey\": \"abcd1234\"\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"message\": \"Token successfully created.\",\n    \"data\": {\n        \"type\": \"accessToken\",\n        \"attributes\": {\n            \"token\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY3RpdmUiOnRydWUsImFwcEtleSI6InRlc3QtYXBwIiwicGFydG5lcklkIjoiMDcxOTU2NTItYWEyMy00MDg1LTg4NTktMGZjZjU1NzE4MzQ5IiwidHlwZSI6InBhcnRuZXIiLCJzaG9ydENvZGUiOiJITyIsImlhdCI6MTY2ODYyNTM2NCwiZXhwIjoxNjY4NjMyNTY0fQ.OUbmz3LLbtEYut1Brr21bcc1LElkYHU0_tLclbVPtBA\",\n            \"appKey\": \"test-app\",\n            \"partnerId\": \"07195652-aa23-4085-8859-0fcf55718349\",\n            \"grantType\": \"client_credentials\"\n        }\n    }\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Unauthorized Error",
+              "status": "Unauthorized Error",
+              "code": 404,
+              "originalRequest": {
+                "description": "Use your Access Credentials to get a Bearer Token",
+                "url": {
+                  "raw": "{{baseUrl}}/auth/partners",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "partners"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"type\": \"accessToken\",\n    \"attributes\": {\n        \"partnerId\": \"partner_0123456\",\n        \"partnerSecret\": \"my-partner-secret\",\n        \"grantType\": \"client_credentials\",\n        \"appKey\": \"abcd1234\"\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"errorType\": \"Unauthorized\",\n    \"errorMessage\": \"Not Found\",\n    \"errors\": [\n        \"Invalid partnerSecret\"\n    ],\n    \"errorRaw\": null,\n    \"errorsValidation\": null\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    },
+    {
+      "name": "Link Sessions",
+      "item": [
+        {
+          "name": "Create a Link Session",
+          "request": {
+            "url": {
+              "raw": "{{baseUrl}}/linkSessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "linkSessions"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"data\": {\n        \"type\": \"linkSession\",\n        \"attributes\": {\n            \"ip\": \"127.0.0.1\",\n            \"successUrl\": \"https://myapp.com/success\",\n            \"errorUrl\": \"https://myapp.com/error\"\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "url": {
+                  "raw": "{{baseUrl}}/linkSessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "linkSessions"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": {\n        \"type\": \"linkSession\",\n        \"attributes\": {\n            \"ip\": \"127.0.0.1\",\n            \"successUrl\": \"https://myapp.com/success\",\n            \"errorUrl\": \"https://myapp.com/error\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Show Link Session",
+          "request": {
+            "description": "Retrieve a link session by token",
+            "url": {
+              "raw": "{{baseUrl}}/linkSessions/:token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "linkSessions",
+                ":token"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "token",
+                  "description": "Session Token",
+                  "value": "308101477701fded66de5d4e4711abdc"
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Retrieve a link session by token",
+                "url": {
+                  "raw": "{{baseUrl}}/linkSessions/:token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "linkSessions",
+                    ":token"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "token",
+                      "description": "Session Token",
+                      "value": "308101477701fded66de5d4e4711abdc"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "{\n    \"message\": \"Successfully retrieved linkSession\",\n    \"data\": {\n        \"id\": \"4e58b2a6-9d29-47fd-992e-601d2c2d9323\",\n        \"type\": \"linkSession\",\n        \"attributes\": {\n            \"status\": \"Active\",\n            \"sessionType\": \"person-application\",\n            \"expiresAt\": \"2023-02-10T18:11:17.740Z\",\n            \"ip\": \"127.0.0.1\",\n            \"longitude\": null,\n            \"latitude\": null,\n            \"errorUrl\": \"https://auxi.mx\",\n            \"successUrl\": \"https://apprecio.mx\",\n            \"webviewUrl\": \"https://demo.valari.co/onboarding/person?token=308101477701fded66de5d4e4711abdc&shortCode=VA&partnerId=f603d296-ecc4-4256-a9f3-4ff93353aa92\",\n            \"isExpired\": false\n        }\n    }\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Bad Request Error",
+              "status": "Bad Request Error",
+              "code": 400,
+              "originalRequest": {
+                "description": "Retrieve a link session by token",
+                "url": {
+                  "raw": "{{baseUrl}}/linkSessions/:token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "linkSessions",
+                    ":token"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "token",
+                      "description": "Session Token",
+                      "value": "308101477701fded66de5d4e4711abdc"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "{\n    \"errorType\": \"Unauthorized\",\n    \"errorMessage\": \"Unable to retrieve session with token\",\n    \"errors\": null,\n    \"errorRaw\": null,\n    \"errorsValidation\": null\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    }
+  ]
+}
