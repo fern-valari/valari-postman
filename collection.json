@@ -6,7 +6,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "https://sandbox.valari.co/api/v1",
+      "value": "https://app.valari.co/api/v1",
       "type": "string"
     },
     {
